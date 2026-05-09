@@ -2,6 +2,44 @@
 
 ---
 
+## 🎯 Learning Objectives
+
+In this module, you will:
+
+* Understand how objects relate to one another
+* Learn the difference between aggregation and composition
+* Model real-world systems using object relationships
+* Improve software architecture and design thinking
+* Strengthen professional object-oriented programming skills
+
+---
+
+## 🎥 Video Learning Resource
+
+[Java Full Course for Beginners by Bro Code](https://youtu.be/xTtL8E4LzTQ)
+
+### ⏱ Watch These Sections in Order:
+
+### 1️⃣ Aggregation
+
+* **08:29:39 → 08:39:02**
+
+### 2️⃣ Composition
+
+* **08:39:02 → 08:45:17**
+
+---
+
+### 📚 Study Method:
+
+* Watch one relationship type at a time
+* Pause frequently
+* Build each class manually
+* Test independently
+* Focus on ownership and dependency
+
+---
+
 ## Learning Outcomes Assessed
 
 * Object Relationships
@@ -9,21 +47,17 @@
 * Composition
 * Constructor Design
 * Class Collaboration
-* Real-World Modeling
 * OOP Architecture
+* Real-World Modeling
 * Software Design Thinking
 
 ---
 
 ## Module Structure
 
-This module contains:
+### Coding Practice Files:
 
-### Coding Practice:
-
-You will complete several Java classes:
-
-```java id="v8x3mq"
+```java
 Student.java
 School.java
 Engine.java
@@ -35,30 +69,16 @@ Exercises.java
 
 ## Your Task
 
-For this module, you must:
+You must:
 
-* Understand how objects connect
-* Model real-world systems accurately
-* Apply aggregation properly
-* Apply composition properly
-* Design constructors correctly
-* Understand ownership between objects
-* Return exact outputs
+* Build interconnected Java classes
+* Understand object ownership deeply
+* Apply aggregation correctly
+* Apply composition correctly
+* Design constructors carefully
+* Build realistic class relationships
+* Return exact expected outputs
 * Pass all tests successfully
-
----
-
-## Your Goal
-
-For each class:
-
-* Use valid Java syntax
-* Follow OOP design principles
-* Build realistic relationships
-* Structure code professionally
-* Handle object creation carefully
-* Follow exact required formats
-* Ensure all unit tests pass
 
 ---
 
@@ -66,56 +86,57 @@ For each class:
 
 ### Run all tests:
 
-```bash id="p2k7tw"
+```bash
 mvn test
 ```
 
-### Run module tests:
+### Run module-specific tests:
 
-```bash id="z6v4rc"
+```bash
 mvn test -Dtest=Module10Test
 ```
 
 ---
 
-# 🧠 Core OOP Relationship Concepts
+# 🧠 Core Object Relationship Concepts
 
 ---
 
 # 🔹 What Are Object Relationships?
 
-In software, objects rarely exist alone.
+Most real-world systems involve multiple connected objects.
 
-Real systems involve connected entities.
-
-Examples:
+### Examples:
 
 * School → Students
 * Car → Engine
-* Company → Employees
 * Library → Books
+* Company → Employees
 
-Understanding these relationships is essential for professional software engineering.
+Understanding these relationships is critical for scalable software engineering.
 
 ---
 
 # 🔹 Aggregation ("Has-A" Relationship)
 
-Aggregation means one object contains or references another, but the contained object can still exist independently.
-
----
+Aggregation means one object references another, but the child object exists independently.
 
 ### Example:
 
 A school has students.
 
-Even if the school closes, the students still exist.
+If the school closes:
+
+* Students still exist
+* Students can transfer elsewhere
 
 ---
 
 ### Key Principle:
 
-Parent does NOT fully own child.
+* Parent references child
+* Parent does NOT fully own child
+* Child can exist independently
 
 ---
 
@@ -131,21 +152,22 @@ Parent does NOT fully own child.
 
 Composition means one object fully owns another.
 
-If the parent is destroyed, the child should not meaningfully exist separately.
-
----
-
 ### Example:
 
 A car has an engine.
 
-Without the car, that engine instance belongs specifically to that car.
+If the car is destroyed:
+
+* That engine belongs specifically to that car
+* Engine is tightly bound to parent object
 
 ---
 
 ### Key Principle:
 
-Parent fully controls child creation.
+* Parent creates child
+* Parent owns child
+* Child depends on parent
 
 ---
 
@@ -159,7 +181,7 @@ Parent fully controls child creation.
 
 # 🧪 Project Structure
 
-```plaintext id="k9x2vp"
+```plaintext
 module10/
 ├── Student.java
 ├── School.java
@@ -173,34 +195,25 @@ module10/
 
 ---
 
-# 🔹 Part 1: Aggregation
+# 🧩 Part 1: Aggregation
 
 # Question 1 - Student Class
 
 ## Class:
 
-```java id="g4m8qx"
+```java
 Student
 ```
 
 ---
 
-### Detailed Objective:
+### Objective:
 
-Create a simple `Student` class that represents an independent student object.
-
-This exercise teaches:
-
-* Basic object creation
-* Constructor use
-* Encapsulation
-* Independent entity modeling
-
----
+Create an independent `Student` class.
 
 ### Required Field:
 
-```java id="m7v3pk"
+```java
 private String name;
 ```
 
@@ -208,7 +221,7 @@ private String name;
 
 ### Required Constructor:
 
-```java id="q2x9zt"
+```java
 Student(String name)
 ```
 
@@ -216,7 +229,7 @@ Student(String name)
 
 ### Required Methods:
 
-```java id="y8m4rc"
+```java
 getName()
 setName()
 ```
@@ -231,33 +244,39 @@ setName()
 
 ---
 
-### Why This Matters:
+### Developer Focus:
 
-Students should exist independently and later be used inside larger systems.
+Students must exist independently from schools.
 
 ---
 
-# Question 2 - School Class
+# 🧩 Question 2 - School Class
 
 ## Class:
 
-```java id="r5k8wd"
+```java
 School
 ```
 
 ---
 
-### Detailed Objective:
+### Objective:
 
-Create a `School` class that aggregates multiple students.
-
----
+Create a `School` class that aggregates students.
 
 ### Required Fields:
 
-```java id="t3v7qp"
+```java
 private String name;
 private Student[] students;
+```
+
+---
+
+### Constructor:
+
+```java
+School(String name, Student[] students)
 ```
 
 ---
@@ -265,22 +284,14 @@ private Student[] students;
 ### Rules:
 
 * Students are passed into constructor
-* School does NOT create students itself
+* School does NOT create students
 * Students remain independent
-
----
-
-### Constructor:
-
-```java id="u9x2mf"
-School(String name, Student[] students)
-```
 
 ---
 
 ### Required Method:
 
-```java id="w4m8zr"
+```java
 countStudents()
 ```
 
@@ -288,45 +299,43 @@ countStudents()
 
 ### Output:
 
-Return total number of students.
+Return total student count.
 
 ---
 
 ### Example:
 
-| Students   | Output |
+| Input      | Output |
 | ---------- | ------ |
 | 3 students | 3      |
 
 ---
 
-### Real-World Understanding:
+### Key Understanding:
 
-A school organizes students, but does not "own" their existence.
+School organizes students, but does not own their existence.
 
 ---
 
-# 🔹 Part 2: Composition
+# 🧩 Part 2: Composition
 
 # Question 3 - Engine Class
 
 ## Class:
 
-```java id="c7v4xp"
+```java
 Engine
 ```
 
 ---
 
-### Detailed Objective:
+### Objective:
 
-Create an `Engine` object used internally by `Car`.
-
----
+Create an `Engine` class.
 
 ### Required Field:
 
-```java id="b2m9qk"
+```java
 private String type;
 ```
 
@@ -334,15 +343,15 @@ private String type;
 
 ### Constructor:
 
-```java id="f8x3tr"
+```java
 Engine(String type)
 ```
 
 ---
 
-### Method:
+### Required Method:
 
-```java id="j4v7pm"
+```java
 getType()
 ```
 
@@ -356,84 +365,76 @@ getType()
 
 ---
 
-# Question 4 - Car Class
+# 🧩 Question 4 - Car Class
 
 ## Class:
 
-```java id="n8m4qw"
+```java
 Car
 ```
 
 ---
 
-### Detailed Objective:
+### Objective:
 
-Create a `Car` class that demonstrates composition.
-
----
+Create a `Car` class using composition.
 
 ### Required Fields:
 
-```java id="x3v7pt"
+```java
 private String model;
 private Engine engine;
 ```
 
 ---
 
-### Rules:
-
-* `Engine` must be created INSIDE the `Car` constructor
-* User provides engine type only
-* Car fully owns engine
-
----
-
 ### Constructor:
 
-```java id="z7m2kc"
+```java
 Car(String model, String engineType)
 ```
 
 ---
 
-### Important:
+### Rules:
 
-This is composition because:
-
-* Car creates engine
-* Engine belongs directly to car
-* Engine is part of car design
+* `Car` creates `Engine` internally
+* User provides engine type only
+* Engine belongs directly to Car
 
 ---
 
 ### Example:
 
-```java id="h4v8qr"
+```java
 new Car("BMW", "V8")
 ```
 
 ---
 
-# Question 5 - Describe Car
+### Key Understanding:
+
+This is composition because:
+
+* Car owns engine
+* Car controls engine creation
+* Engine is part of car structure
+
+---
+
+# 🧩 Question 5 - Describe Car
 
 ## Method:
 
-```java id="d9m3xt"
+```java
 describe()
 ```
 
 ---
 
-### Detailed Objective:
+### Required Output Format:
 
-Return a readable description of the car and its engine.
-
----
-
-### Required Format:
-
-```java id="l5v7pk"
+```java
 Model: BMW, Engine: V8
 ```
 
@@ -441,7 +442,7 @@ Model: BMW, Engine: V8
 
 ### Why This Matters:
 
-Readable object summaries are important for:
+Readable summaries are essential for:
 
 * Debugging
 * Logging
@@ -454,12 +455,12 @@ Readable object summaries are important for:
 
 * Aggregation = external object passed in
 * Composition = internal object created
-* Think about ownership carefully
+* Think carefully about ownership
 * Constructors define relationships
 * Keep classes focused
-* Model real-world systems logically
 * Use encapsulation properly
-* Build maintainable systems
+* Design scalable systems
+* Build maintainable architecture
 
 ---
 
@@ -470,22 +471,24 @@ By completing this module, you should:
 * Understand object relationships deeply
 * Know when to use aggregation
 * Know when to use composition
-* Build more realistic software systems
-* Improve architectural thinking
-* Design stronger OOP systems
-* Prepare for enterprise-level software development
+* Design realistic software systems
+* Improve architecture-level thinking
+* Strengthen OOP mastery
+* Prepare for enterprise software design
 
 ---
 
 # 🏆 Success Mindset
 
-Understanding object relationships is critical for:
+Professional software is built from interconnected systems, not isolated classes.
 
-* Large software systems
-* Backend development
-* Game development
-* APIs
+Mastering object relationships prepares you for:
+
+* Backend systems
 * Enterprise applications
+* APIs
+* Game development
 * Clean architecture
+* Large-scale software engineering
 
-This module moves you beyond isolated classes and into designing interconnected software systems like professional developers.
+This module moves you from basic OOP into designing real-world software structures like professional developers.
