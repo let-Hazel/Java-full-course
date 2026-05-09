@@ -8,10 +8,10 @@ By the end of this module, you should be able to:
 
 - Understand how decision-making works in Java
 - Use `if`, `else if`, and `else`
-- Apply logical comparisons correctly
-- Handle boundary conditions properly
-- Solve real-world problems using conditional logic
-- Produce correctly formatted program output
+- Use comparison operators such as `>`, `<`, `>=`, and `==`
+- Print output using `System.out.println()`
+- Format output using `System.out.printf()`
+- Solve beginner programming problems using conditional logic
 
 ---
 
@@ -24,46 +24,56 @@ https://youtu.be/xTtL8E4LzTQ
 - **00:01:09 → 00:01:22** → Basic `if` statements
 - **00:01:27 → 00:01:56** → `if`, `else if`, and `else`
 
-👉 Watch a small section, pause, code the examples yourself, and test them before moving on.
+👉 Watch a short section, pause, and code the examples yourself before continuing.
 
 ---
 
 # 📚 Learning Outcomes Assessed
 
 - Conditional Logic
-- Decision Making
 - Comparison Operators
-- Boolean Expressions
-- Boundary Handling
-- String Output Formatting
+- Decision Making
+- Console Output
+- Output Formatting with `printf`
 - Problem Decomposition
 
 ---
 
 # 🛠 Module Structure
 
-This module contains:
+This module contains six standalone Java programs.
 
-### Coding Practice
+Each program has its own `main()` method.
 
-Complete all functions inside:
+Students are **not expected to write methods/functions yet**.
 
-```java
-ConditionExercises.java
+---
+
+## 📁 Files to Complete
+
+```text
+module02/
+├── Exercise1_TemperatureAlert.java
+├── Exercise2_AgeVerification.java
+├── Exercise3_EvenOrOdd.java
+├── Exercise4_DiscountCalculator.java
+├── Exercise5_WeatherAdvisor.java
+├── Exercise6_AgeGroup.java
+└── ConditionExercisesTest.java
 ```
 
 ---
 
 # ✅ What You Must Do
 
-For this module, you must:
+For each exercise:
 
-- Read each question carefully
-- Determine the condition(s) required
-- Use `if`, `else if`, and `else` appropriately
-- Return the exact expected output
-- Handle all boundary cases correctly
-- Pass all unit tests successfully
+1. Open the Java file.
+2. Read the instructions in this README.
+3. Complete the code inside the `main()` method.
+4. Print the exact required output.
+5. Run the tests.
+6. Fix any failing tests.
 
 ---
 
@@ -73,11 +83,11 @@ For this module, you must:
 
 ## 🔹 `if`
 
-Executes code only when a condition is true.
+Runs code only if a condition is true.
 
 ```java
-if (temperature > 35) {
-    return "Heat warning!";
+if (temperature >= 35) {
+    System.out.println("It's hot!");
 }
 ```
 
@@ -85,13 +95,13 @@ if (temperature > 35) {
 
 ## 🔹 `if / else`
 
-Chooses between two possibilities.
+Chooses between two outcomes.
 
 ```java
 if (age >= 18) {
-    return "Adult";
+    System.out.println("Access granted");
 } else {
-    return "Minor";
+    System.out.println("Access denied");
 }
 ```
 
@@ -99,30 +109,34 @@ if (age >= 18) {
 
 ## 🔹 `if / else if / else`
 
-Used when there are multiple possible outcomes.
+Used when there are more than two possibilities.
 
 ```java
-if (score >= 80) {
-    return "Distinction";
-} else if (score >= 50) {
-    return "Pass";
+if (age < 13) {
+    System.out.println("Child");
+} else if (age < 20) {
+    System.out.println("Teen");
 } else {
-    return "Fail";
+    System.out.println("Adult");
 }
 ```
 
 ---
 
-## 🔹 Comparison Operators
+## 🔹 `printf`
 
-| Operator | Meaning |
-|----------|---------|
-| `>` | Greater than |
-| `<` | Less than |
-| `>=` | Greater than or equal to |
-| `<=` | Less than or equal to |
-| `==` | Equal to |
-| `!=` | Not equal to |
+Formats output neatly.
+
+```java
+double price = 960.0;
+System.out.printf("Final price: R%.2f%n", price);
+```
+
+Output:
+
+```text
+Final price: R960.00
+```
 
 ---
 
@@ -132,243 +146,247 @@ if (score >= 80) {
 
 # 🧩 Question 1 – Temperature Alert
 
-## Function
+## File
 
 ```java
-exercise1_temperatureAlert(int temperature)
+Exercise1_TemperatureAlert.java
 ```
 
-### Objective
+## Objective
 
-Determine whether the temperature is dangerously high.
+Check whether the temperature is hot.
 
-### Rules
+## Rules
 
-- If temperature is greater than `35`, return `"Heat warning!"`
-- Otherwise, return `"Temperature normal"`
+- If temperature is `35` or higher, print:
 
-### Input
+```text
+It's hot!
+```
 
-- `int temperature`
+- Otherwise, print:
 
-### Output
+```text
+It's not hot.
+```
 
-- `String`
+## Starter Value
 
-### Examples
+```java
+int temperature = 35;
+```
 
-| Input | Output |
-|------|------|
-| `40` | `"Heat warning!"` |
-| `35` | `"Temperature normal"` |
-| `20` | `"Temperature normal"` |
+## Examples
 
-### Edge Cases
-
-- Exactly `35` is considered normal.
+| Temperature | Output |
+|----------:|--------|
+| 25 | `It's not hot.` |
+| 30 | `It's not hot.` |
+| 35 | `It's hot!` |
 
 ---
 
 # 🧩 Question 2 – Age Verification
 
-## Function
+## File
 
 ```java
-exercise2_ageVerification(int age)
+Exercise2_AgeVerification.java
 ```
 
-### Objective
+## Objective
 
-Check whether a person is old enough to vote.
+Check if a person is old enough.
 
-### Rules
+## Rules
 
-- If age is `18` or older, return `"Eligible to vote"`
-- Otherwise, return `"Not eligible"`
+- If age is `18` or older, print:
 
-### Input
+```text
+Access granted
+```
 
-- `int age`
+- Otherwise, print:
 
-### Output
+```text
+Access denied
+```
 
-- `String`
+## Starter Value
 
-### Examples
+```java
+int age = 18;
+```
 
-| Input | Output |
-|------|------|
-| `20` | `"Eligible to vote"` |
-| `18` | `"Eligible to vote"` |
-| `17` | `"Not eligible"` |
+## Examples
 
-### Edge Cases
-
-- Exactly `18` is eligible.
+| Age | Output |
+|---:|------|
+| 15 | `Access denied` |
+| 18 | `Access granted` |
+| 25 | `Access granted` |
 
 ---
 
 # 🧩 Question 3 – Even or Odd
 
-## Function
+## File
 
 ```java
-exercise3_evenOrOdd(int number)
+Exercise3_EvenOrOdd.java
 ```
 
-### Objective
+## Objective
 
 Determine whether a number is even or odd.
 
-### Rules
+## Rules
 
-- If the number is divisible by `2`, return `"Even"`
-- Otherwise, return `"Odd"`
+- If the number is divisible by 2, print:
 
-### Input
+```text
+[number] is even
+```
 
-- `int number`
+- Otherwise, print:
 
-### Output
+```text
+[number] is odd
+```
 
-- `String`
+## Starter Value
 
-### Examples
+```java
+int number = 7;
+```
 
-| Input | Output |
-|------|------|
-| `8` | `"Even"` |
-| `7` | `"Odd"` |
-| `0` | `"Even"` |
+## Examples
 
-### Edge Cases
-
-- `0` is even.
-- Negative numbers work the same way.
+| Number | Output |
+|-----:|------|
+| 7 | `7 is odd` |
+| 10 | `10 is even` |
+| 0 | `0 is even` |
 
 ---
 
 # 🧩 Question 4 – Discount Calculator
 
-## Function
+## File
 
 ```java
-exercise4_discountCalculator(double price)
+Exercise4_DiscountCalculator.java
 ```
 
-### Objective
+## Objective
 
-Determine whether a customer qualifies for a discount.
+Calculate the discount and final price.
 
-### Rules
+## Rules
 
-- If price is greater than or equal to `100`, return `"Discount applied"`
-- Otherwise, return `"No discount"`
+- If price is `1000` or more → discount = `20%`
+- Else if price is `500` or more → discount = `10%`
+- Otherwise → discount = `0%`
 
-### Input
+Print the result using:
 
-- `double price`
+```java
+System.out.printf("Discount: %d%%, Final price: R%.2f%n", discount, finalPrice);
+```
 
-### Output
+## Starter Value
 
-- `String`
+```java
+double price = 1200;
+```
 
-### Examples
+## Examples
 
-| Input | Output |
-|------|------|
-| `150.0` | `"Discount applied"` |
-| `100.0` | `"Discount applied"` |
-| `99.99` | `"No discount"` |
-
-### Edge Cases
-
-- Exactly `100` qualifies for the discount.
+| Price | Output |
+|-----:|------|
+| 1200 | `Discount: 20%, Final price: R960.00` |
+| 750 | `Discount: 10%, Final price: R675.00` |
+| 300 | `Discount: 0%, Final price: R300.00` |
 
 ---
 
 # 🧩 Question 5 – Weather Advisor
 
-## Function
+## File
 
 ```java
-exercise5_weatherAdvisor(int temperature)
+Exercise5_WeatherAdvisor.java
 ```
 
-### Objective
+## Objective
 
-Recommend what to wear based on the temperature.
+Provide advice based on temperature.
 
-### Rules
+## Rules
 
-- If temperature is less than `15`, return `"Wear a jacket"`
-- Otherwise, return `"T-shirt weather"`
+- If temperature is `30` or higher → `"It's hot!"`
+- Else if temperature is `15` or higher → `"It's mild."`
+- Otherwise → `"It's cold."`
 
-### Input
+Print the output exactly as:
 
-- `int temperature`
+```text
+Temperature: 35°C, Advice: It's hot!
+```
 
-### Output
+## Starter Value
 
-- `String`
+```java
+int temperature = 35;
+```
 
-### Examples
+## Examples
 
-| Input | Output |
-|------|------|
-| `10` | `"Wear a jacket"` |
-| `14` | `"Wear a jacket"` |
-| `15` | `"T-shirt weather"` |
-| `25` | `"T-shirt weather"` |
-
-### Edge Cases
-
-- Exactly `15` is warm enough for a T-shirt.
+| Temperature | Output |
+|----------:|------|
+| 35 | `Temperature: 35°C, Advice: It's hot!` |
+| 20 | `Temperature: 20°C, Advice: It's mild.` |
+| 5 | `Temperature: 5°C, Advice: It's cold.` |
 
 ---
 
 # 🧩 Question 6 – Age Group
 
-## Function
+## File
 
 ```java
-exercise6_ageGroup(int age)
+Exercise6_AgeGroup.java
 ```
 
-### Objective
+## Objective
 
-Classify a person into an age category.
+Classify a person by age.
 
-### Rules
+## Rules
 
-- If age is less than `13`, return `"Child"`
-- Else if age is less than `20`, return `"Teenager"`
-- Otherwise, return `"Adult"`
+- Age less than `13` → `Child`
+- Age less than `20` → `Teen`
+- Otherwise → `Adult`
 
-### Input
+Print the result exactly as:
 
-- `int age`
+```text
+Age: 15, Group: Teen
+```
 
-### Output
+## Starter Value
 
-- `String`
+```java
+int age = 15;
+```
 
-### Examples
+## Examples
 
-| Input | Output |
-|------|------|
-| `8` | `"Child"` |
-| `13` | `"Teenager"` |
-| `17` | `"Teenager"` |
-| `20` | `"Adult"` |
-| `45` | `"Adult"` |
-
-### Edge Cases
-
-- `12` → `"Child"`
-- `13` → `"Teenager"`
-- `19` → `"Teenager"`
-- `20` → `"Adult"`
+| Age | Output |
+|---:|------|
+| 10 | `Age: 10, Group: Child` |
+| 15 | `Age: 15, Group: Teen` |
+| 25 | `Age: 25, Group: Adult` |
 
 ---
 
@@ -380,7 +398,7 @@ Classify a person into an age category.
 mvn test
 ```
 
-### Run only this module’s tests
+### Run only this module's tests
 
 ```bash
 mvn test -Dtest=ConditionExercisesTest
@@ -390,36 +408,33 @@ mvn test -Dtest=ConditionExercisesTest
 
 # 💡 Key Developer Tips
 
-- Start by identifying the condition to test.
-- Use `>=` and `<=` carefully.
-- Check boundary values like `18`, `35`, `100`, and `20`.
-- Return the exact strings shown in the examples.
-- String comparisons in tests are case-sensitive.
-- Use `else if` when there are more than two outcomes.
+- Use the exact output shown in the examples.
+- Pay close attention to punctuation, spaces, and capitalization.
+- Use `printf()` for formatted output.
+- Test boundary values like `35`, `18`, `1000`, and `13`.
 
 ---
 
 # 🚀 End Goal
 
-By completing this module, you should be able to:
+By completing this module, you will be able to:
 
-- Write simple decision-making programs
-- Choose between multiple outcomes
-- Handle boundary conditions correctly
-- Return properly formatted results
-- Build the foundation for more advanced logic
+- Write Java programs that make decisions
+- Use `if`, `else if`, and `else`
+- Format output with `printf()`
+- Solve practical beginner problems
 
 ---
 
 # 🏆 Success Mindset
 
-Conditional statements are fundamental to all software:
+Conditional statements are used everywhere in software:
 
 - Login systems
-- Banking applications
-- Game rules
+- Shopping carts
+- Banking apps
+- Games
 - Input validation
-- Business logic
-- AI decision systems
 
-Master conditionals thoroughly — they are the building blocks of intelligent programs.
+Master conditionals thoroughly—they are the foundation of intelligent programs.
+```
