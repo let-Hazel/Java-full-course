@@ -2,20 +2,47 @@
 
 ---
 
-## Learning Outcomes Assessed
+## 🎯 Learning Objectives
 
-* Iteration Logic
-* Loop Structures (`for`, `while`, `do-while`)
-* Flow Control (`break`, `continue`)
-* Array Traversal
-* Stopping Conditions
-* Sequential Processing
-* Problem Decomposition
-* Algorithmic Thinking
+In this module, you will:
+
+- Understand repetition using loops
+- Use `while`, `do-while`, and `for` loops effectively
+- Apply `break` and `continue` correctly
+- Process arrays using iteration
+- Handle stopping conditions safely
+- Avoid infinite loops
+- Strengthen algorithmic thinking through repeated problem-solving
 
 ---
 
-## Module Structure
+## 🎥 Video Learning Resource
+
+https://youtu.be/xTtL8E4LzTQ
+
+### ⏱ Watch These Sections Only:
+
+- **00:03:09 → 00:03:33** → `while` & `do-while`
+- **00:03:43 → 00:03:55** → `for` loops
+
+👉 Watch each section separately and practice immediately after each one.
+
+---
+
+# 📚 Learning Outcomes Assessed
+
+- Iteration Logic
+- Loop Structures (`for`, `while`, `do-while`)
+- Flow Control (`break`, `continue`)
+- Array Traversal
+- Sequential Processing
+- Stopping Conditions
+- Problem Decomposition
+- Algorithmic Thinking
+
+---
+
+# 🛠 Module Structure
 
 This module contains:
 
@@ -29,36 +56,23 @@ LoopExercises.java
 
 ---
 
-## Your Task
+# ✅ What You Must Do
 
 For this module, you must:
 
-* Understand when to use each loop type
-* Choose the correct loop structure per problem
-* Handle stopping conditions correctly
-* Avoid infinite loops
-* Process arrays accurately
-* Apply `break` and `continue` where required
-* Return exact expected outputs
-* Pass all unit tests successfully
+- Understand when to use each loop type
+- Select the correct loop structure for each problem
+- Handle stopping conditions properly
+- Avoid infinite loops
+- Process arrays accurately
+- Apply `break` and `continue` where required
+- Return exact expected outputs
+- Handle all edge cases
+- Pass all unit tests successfully
 
 ---
 
-## Your Goal
-
-For each function:
-
-* Use valid Java syntax
-* Select appropriate loop type (`for`, `while`, `do-while`)
-* Implement correct stopping logic
-* Handle edge cases carefully
-* Maintain correct counting logic
-* Format outputs exactly as required
-* Ensure all tests pass
-
----
-
-## How to Run Your Tests
+# 🧪 How to Run Your Tests
 
 ### Run all tests:
 
@@ -66,7 +80,7 @@ For each function:
 mvn test
 ```
 
-### Run module tests:
+### Run only this module’s tests:
 
 ```bash
 mvn test -Dtest=LoopExercisesTest
@@ -78,9 +92,9 @@ mvn test -Dtest=LoopExercisesTest
 
 ---
 
-## `while` Loop
+## 🔹 `while` Loop
 
-Used when repetition depends on a condition that is checked before execution.
+Used when repetition depends on a condition checked before execution.
 
 ```java
 while (condition) {
@@ -88,11 +102,20 @@ while (condition) {
 }
 ```
 
+### Example:
+
+```java
+int i = 0;
+while (i < 5) {
+    i++;
+}
+```
+
 ---
 
-## `do-while` Loop
+## 🔹 `do-while` Loop
 
-Ensures the loop executes at least once before checking the condition.
+Runs at least once before checking the condition.
 
 ```java
 do {
@@ -102,9 +125,9 @@ do {
 
 ---
 
-## `for` Loop
+## 🔹 `for` Loop
 
-Used when the number of iterations is known in advance.
+Best when the number of repetitions is known beforehand.
 
 ```java
 for (int i = 0; i < n; i++) {
@@ -114,15 +137,15 @@ for (int i = 0; i < n; i++) {
 
 ---
 
-## `break`
+## 🔹 `break`
 
-Immediately stops loop execution.
+Stops loop execution immediately.
 
 ---
 
-## `continue`
+## 🔹 `continue`
 
-Skips the current iteration and moves to the next loop cycle.
+Skips current iteration and moves to the next.
 
 ---
 
@@ -130,7 +153,7 @@ Skips the current iteration and moves to the next loop cycle.
 
 ---
 
-# Question 1 - Guessing Game
+# 🧩 Question 1 - Guessing Game
 
 ## Function:
 
@@ -142,51 +165,51 @@ exercise1_guessingGame(int[] guesses, int secret)
 
 ### Objective:
 
-Simulate repeated guesses until the correct value is found in a sequence of attempts.
+Simulate repeated guesses until the correct secret number is found.
 
 ---
 
 ### Rules:
 
-* Iterate through the `guesses` array
-* Count each attempt
-* Stop immediately when the guess equals the secret number
-* Return total number of attempts needed to reach the correct guess
+- Iterate through the `guesses` array
+- Count each attempt
+- Stop immediately when guess equals secret
+- Return total number of attempts used
 
 ---
 
 ### Inputs:
 
-* `int[] guesses`
-* `int secret`
+- `int[] guesses`
+- `int secret`
 
 ---
 
 ### Output:
 
-* Integer representing number of attempts
+- Integer representing attempt count
 
 ---
 
 ### Examples:
 
-| Input                 | Output |
-| --------------------- | ------ |
-| [5, 7], secret = 7    | 2      |
-| [3, 4, 9], secret = 9 | 3      |
-| [8], secret = 8       | 1      |
+| Input | Output |
+|------|--------|
+| `[5, 7], secret = 7` | `2` |
+| `[3, 4, 9], secret = 9` | `3` |
+| `[8], secret = 8` | `1` |
 
 ---
 
 ### Edge Cases:
 
-* Secret may appear at first position
-* Secret is guaranteed to exist in input
-* Only count up to first correct match
+- Secret may appear first
+- Secret is guaranteed to exist
+- Stop at first correct guess
 
 ---
 
-# Question 2 - PIN Validator
+# 🧩 Question 2 - PIN Validator
 
 ## Function:
 
@@ -198,51 +221,50 @@ exercise2_pinValidator(int[] pins)
 
 ### Objective:
 
-Validate a sequence of PIN attempts until the correct PIN (`1234`) is entered.
+Validate PIN attempts until correct PIN (`1234`) is entered.
 
 ---
 
 ### Rules:
 
-* Iterate through all PIN attempts
-* Correct PIN is `1234`
-* Count attempts until correct PIN is found
-* Stop immediately when correct PIN is encountered
-* Return number of attempts used
+- Correct PIN = `1234`
+- Count attempts
+- Stop when correct PIN is found
+- Return number of attempts used
 
 ---
 
 ### Input:
 
-* `int[] pins`
+- `int[] pins`
 
 ---
 
 ### Output:
 
-* Integer attempt count
+- Integer attempt count
 
 ---
 
 ### Examples:
 
-| Input              | Output |
-| ------------------ | ------ |
-| [1111, 1234]       | 2      |
-| [1234]             | 1      |
-| [0000, 9999, 1234] | 3      |
+| Input | Output |
+|------|--------|
+| `[1111, 1234]` | `2` |
+| `[1234]` | `1` |
+| `[0000, 9999, 1234]` | `3` |
 
 ---
 
 ### Edge Cases:
 
-* Correct PIN may appear first
-* Multiple invalid attempts before success
-* PIN is guaranteed to appear in input
+- Correct PIN may be first
+- Multiple incorrect attempts
+- PIN guaranteed to appear
 
 ---
 
-# Question 3 - Sum Until Zero
+# 🧩 Question 3 - Sum Until Zero
 
 ## Function:
 
@@ -254,50 +276,49 @@ exercise3_sumUntilZero(int[] numbers)
 
 ### Objective:
 
-Compute the sum of numbers until a stopping value (`0`) is encountered.
+Calculate total sum until `0` is encountered.
 
 ---
 
 ### Rules:
 
-* Iterate through array sequentially
-* Add values to total sum
-* Stop processing when `0` is encountered
-* Do NOT include `0` in the sum
+- Add numbers sequentially
+- Stop at first `0`
+- Do NOT include `0`
 
 ---
 
 ### Input:
 
-* `int[] numbers`
+- `int[] numbers`
 
 ---
 
 ### Output:
 
-* Integer sum of values before zero
+- Integer sum
 
 ---
 
 ### Examples:
 
-| Input        | Output |
-| ------------ | ------ |
-| [5, 3, 2, 0] | 10     |
-| [1, 2, 3, 0] | 6      |
-| [0]          | 0      |
+| Input | Output |
+|------|--------|
+| `[5, 3, 2, 0]` | `10` |
+| `[1, 2, 3, 0]` | `6` |
+| `[0]` | `0` |
 
 ---
 
 ### Edge Cases:
 
-* Zero may appear first
-* Negative numbers are valid before zero
-* Always stop at first zero occurrence
+- Zero first
+- Negative numbers valid
+- Stop immediately at first zero
 
 ---
 
-# Question 4 - Number Printer
+# 🧩 Question 4 - Number Printer
 
 ## Function:
 
@@ -309,50 +330,49 @@ exercise4_numberPrinter(int n)
 
 ### Objective:
 
-Print numbers from `1` to `n`, excluding multiples of 5.
+Print numbers from `1` to `n`, skipping multiples of `5`.
 
 ---
 
 ### Rules:
 
-* Use a `for` loop
-* Iterate from 1 to n inclusive
-* Skip numbers divisible by 5
-* Return values as comma-separated string
+- Use `for` loop
+- Skip numbers divisible by `5`
+- Return comma-separated string
 
 ---
 
 ### Input:
 
-* Integer `n`
+- `int n`
 
 ---
 
 ### Output:
 
-* Comma-separated string of valid numbers
+- String
 
 ---
 
 ### Examples:
 
-| Input | Output                   |
-| ----- | ------------------------ |
-| 10    | "1, 2, 3, 4, 6, 7, 8, 9" |
-| 5     | "1, 2, 3, 4"             |
-| 3     | "1, 2, 3"                |
+| Input | Output |
+|------|--------|
+| `10` | `"1, 2, 3, 4, 6, 7, 8, 9"` |
+| `5` | `"1, 2, 3, 4"` |
+| `3` | `"1, 2, 3"` |
 
 ---
 
 ### Edge Cases:
 
-* n less than 5
-* Exact multiples of 5 excluded
-* Proper comma formatting required
+- `n < 5`
+- Multiples excluded
+- Proper formatting
 
 ---
 
-# Question 5 - Password Checker
+# 🧩 Question 5 - Password Checker
 
 ## Function:
 
@@ -364,51 +384,52 @@ exercise5_passwordChecker(String[] attempts)
 
 ### Objective:
 
-Validate password attempts with a maximum limit of 3 tries.
+Validate password attempts with maximum 3 tries.
 
 ---
 
 ### Rules:
 
-* Maximum allowed attempts: 3
-* Correct password is `"secret"`
-* Stop immediately when correct password is found
-* Return `"Access granted!"` if successful
-* Otherwise return `"Access denied"`
+- Max attempts = 3
+- Correct password = `"secret"`
+- Stop early if correct
+- Return:
+  - `"Access granted!"`
+  - `"Access denied"`
 
 ---
 
 ### Input:
 
-* `String[] attempts`
+- `String[] attempts`
 
 ---
 
 ### Output:
 
-* Access result string
+- String
 
 ---
 
 ### Examples:
 
-| Input                          | Output            |
-| ------------------------------ | ----------------- |
-| ["wrong", "secret"]            | "Access granted!" |
-| ["wrong1", "wrong2", "wrong3"] | "Access denied"   |
-| ["secret"]                     | "Access granted!" |
+| Input | Output |
+|------|--------|
+| `["wrong", "secret"]` | `"Access granted!"` |
+| `["wrong1", "wrong2", "wrong3"]` | `"Access denied"` |
+| `["secret"]` | `"Access granted!"` |
 
 ---
 
 ### Edge Cases:
 
-* Success on first attempt
-* More than 3 inputs provided (only first 3 count)
-* No correct password found
+- Correct on first try
+- More than 3 attempts given
+- Only first 3 count
 
 ---
 
-# Question 6 - Even Numbers
+# 🧩 Question 6 - Even Numbers
 
 ## Function:
 
@@ -420,59 +441,59 @@ exercise6_evenNumbers(int n)
 
 ### Objective:
 
-Extract all even numbers from 1 to n.
+Return all even numbers from `1` to `n`.
 
 ---
 
 ### Rules:
 
-* Use a loop from 1 to n
-* Use `continue` to skip odd numbers
-* Collect only even numbers
-* Return comma-separated string
+- Use loop
+- Use `continue` to skip odds
+- Return comma-separated string
 
 ---
 
 ### Input:
 
-* Integer `n`
+- `int n`
 
 ---
 
 ### Output:
 
-* Comma-separated even numbers
+- String
 
 ---
 
 ### Examples:
 
-| Input | Output       |
-| ----- | ------------ |
-| 8     | "2, 4, 6, 8" |
-| 5     | "2, 4"       |
-| 2     | "2"          |
+| Input | Output |
+|------|--------|
+| `8` | `"2, 4, 6, 8"` |
+| `5` | `"2, 4"` |
+| `2` | `"2"` |
 
 ---
 
 ### Edge Cases:
 
-* n less than 2
-* No even numbers available
-* Correct formatting required
+- `n < 2`
+- No even numbers
+- Proper formatting
 
 ---
 
 # 💡 Key Developer Tips
 
-* Always define loop stopping conditions clearly
-* Avoid infinite loops at all costs
-* Track counters carefully
-* Use `break` only when necessary
-* Use `continue` to skip unwanted values
-* Handle arrays safely
-* Pay attention to formatting rules
-* Test edge cases manually
+- Clearly define stopping conditions
+- Avoid infinite loops
+- Track counters carefully
+- Use arrays to simulate user input
+- Apply `break` only when necessary
+- Use `continue` strategically
+- Validate output formatting
+- Test edge cases manually
+- Practice loop tracing on paper if confused
 
 ---
 
@@ -480,26 +501,24 @@ Extract all even numbers from 1 to n.
 
 By completing this module, you should:
 
-* Understand all loop types deeply
-* Control program flow effectively
-* Process arrays confidently
-* Build correct iteration logic
-* Handle real-world sequential problems
-* Strengthen algorithmic thinking
-* Prepare for data structure complexity
+- Master `while`, `do-while`, and `for`
+- Understand loop flow deeply
+- Process sequences confidently
+- Build strong iterative logic
+- Solve repeated-action programming problems
+- Prepare for advanced algorithms and data structures
 
 ---
 
 # 🏆 Success Mindset
 
-Loops are one of the core building blocks of programming.
+Loops are foundational to:
 
-They power:
+- Data processing systems
+- Backend services
+- Automation tools
+- Game engines
+- AI pipelines
+- Real-world software engineering
 
-* Data processing systems
-* Backend APIs
-* Game loops
-* Automation scripts
-* AI training pipelines
-
-Master loops thoroughly — everything else in programming builds on them.
+Master loops thoroughly — they are one of programming’s most powerful tools.
